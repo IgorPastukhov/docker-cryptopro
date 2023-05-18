@@ -80,9 +80,12 @@ class CryptoPro
             ->setThumbprint($certificate->get_Thumbprint())
             ->setPin($pin)
             ->setNoCert($noCert)
-            ->setNoChain($noChain);
+            ->setNoChain($noChain)
+            ->setDetached(true);
         (new CryptCP)->sign($request);
-        $content = file_get_contents($outputFile);
+
+        $content = base64_encode(file_get_contents($outputFile));
+
         unlink($outputFile);
         return $content;
     }

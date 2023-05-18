@@ -69,9 +69,10 @@ class SignRequest
     {
         $args = [
             '-sign ' . $this->inputFile . ' ' . $this->outputFile,
+			'-der',
             '-u' . $this->userStore,
             '-thumbprint \'' . $this->thumbprint . '\'',
-            '-cadesbes'
+        
         ];
         if ($this->detached) {
             $args[] = '-detached';
