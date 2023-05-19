@@ -6,6 +6,8 @@ server {
 
 	server_name _;
 
+	client_max_body_size 104857600; #100mb
+
 	location / {
 		 try_files $uri $uri/ /index.php$is_args$args;
 	}
